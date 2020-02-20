@@ -1,3 +1,5 @@
+import sys 
+
 deck = []
 suits = ["♠", "♥", "♦", "♣"]
 
@@ -16,31 +18,25 @@ for i in range(4):
 
 print(deck)
 
-#commit to github under siumulation
+def selectSort(deck):
+    for i in range(len(deck)): 
+      
+        min_idx = i 
+        for j in range(i+1, len(deck)): 
+            if deck[min_idx] > deck[j]: 
+                min_idx = j
 
-# shuffle the deck
-
-# print the shuffled deck
-#commit a second time to github
-# turn in two histories
-
-import random 
+        if deck[i] > deck[min_idx]:
+            deck[i], deck[min_idx] = deck[min_idx], deck[i] 
   
-def randomize (deck, n): 
-    # Start from the last element and swap one by one. We don't 
-    # need to run for the first element that's why i > 0 
-    for i in range(n-1,0,-1): 
-        # Pick a random index from 0 to i 
-        j = random.randint(0,i+1) 
-  
-        # Swap arr[i] with the element at random index 
-        deck[i],deck[j] = deck[j],deck[i] 
-    return deck
 
-# Driver program to test above function. 
+    print ("Sorted array") 
+    for i in range(len(deck)): 
+        print(deck[i])
 
-n = len(deck)
 
-print(randomize(deck, n)) 
+selectSort(deck)
+
+print(deck)
   
 
